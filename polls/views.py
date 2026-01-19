@@ -102,7 +102,7 @@ def vote(request, question_id):
             'question': question,
             'error_message': "You didn't select a choice.",
         })
-    except Choice.DoesNotExist:
+    except question.choice_set.model.DoesNotExist:
         # Invalid choice ID
         return render(request, 'polls/detail.html', {
             'question': question,
