@@ -21,7 +21,7 @@ class Question(models.Model):
 
     def __str__(self) -> str:
         """String representation of the Question."""
-        return self.question_text
+        return f"Question: {self.question_text}"
 
     def was_published_recently(self) -> bool:
         """
@@ -49,6 +49,12 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0, help_text="Number of votes received")
 
     class Meta:
+        """
+        Meta options for the model:
+        - Orders instances by descending 'votes' and then by 'choice_text'.
+        - Sets the singular verbose name to "Choice".
+        - Sets the plural verbose name to "Choices".
+        """
         ordering = ['-votes', 'choice_text']
         verbose_name = "Choice"
         verbose_name_plural = "Choices"
