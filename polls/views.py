@@ -5,11 +5,11 @@ from django.views import generic
 from django.views.decorators.http import require_http_methods
 from django.contrib import messages
 
-from .models import Choice, Question
+from .models import Question
 from .utils import get_published_questions_queryset, format_poll_results
 
 
-def health_check(request):  # noqa: ARG001
+def health_check(_request):
     """
     Health check endpoint for monitoring the application status.
     

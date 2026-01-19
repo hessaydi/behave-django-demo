@@ -9,7 +9,7 @@ class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3
     fields = ('choice_text', 'votes')
-    readonly_fields = ('votes',) if not admin.site._registry else ()
+    readonly_fields = ('votes',)
 
 
 @admin.register(Question)
